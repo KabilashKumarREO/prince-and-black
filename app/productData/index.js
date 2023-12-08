@@ -41,7 +41,7 @@ export const productData = [
     price: 35,
     description:
       "Designed for comfort, these dining chairs are upholstered in a soft fabric and foam-filled for extra cushioning. The supportive backrest and integrated armrests encourage a better posture and the splayed legs honour recognisable Scandi-inspired shapes. We've made them from sturdy red oak in an espresso brown lacquer for a durable finish and sleek design contrast.",
-    image: "/assets/products/",
+    image: "/assets/products/Hot Air Balloon Print - 2_2_1.jpg",
     category: [""],
   },
   {
@@ -50,7 +50,7 @@ export const productData = [
     price: 12,
     description:
       "Designed for comfort, these dining chairs are upholstered in a soft fabric and foam-filled for extra cushioning. The supportive backrest and integrated armrests encourage a better posture and the splayed legs honour recognisable Scandi-inspired shapes. We've made them from sturdy red oak in an espresso brown lacquer for a durable finish and sleek design contrast.",
-    image: "/assets/products/",
+    image: "/assets/products/(Pool Toys) Classic Beach Ball_2_1.jpg",
     category: [""],
   },
   {
@@ -59,7 +59,7 @@ export const productData = [
     price: 11,
     description:
       "Designed for comfort, these dining chairs are upholstered in a soft fabric and foam-filled for extra cushioning. The supportive backrest and integrated armrests encourage a better posture and the splayed legs honour recognisable Scandi-inspired shapes. We've made them from sturdy red oak in an espresso brown lacquer for a durable finish and sleek design contrast.",
-    image: "/assets/products/",
+    image: "/assets/products/Book_Cover_Mockup2_1.jpg",
     category: [""],
   },
   {
@@ -68,7 +68,7 @@ export const productData = [
     price: 10,
     description:
       "Designed for comfort, these dining chairs are upholstered in a soft fabric and foam-filled for extra cushioning. The supportive backrest and integrated armrests encourage a better posture and the splayed legs honour recognisable Scandi-inspired shapes. We've made them from sturdy red oak in an espresso brown lacquer for a durable finish and sleek design contrast.",
-    image: "/assets/products/",
+    image: "/assets/products/Book_Cover_Mockup3_1.jpg",
     category: [""],
   },
   {
@@ -77,7 +77,7 @@ export const productData = [
     price: 99,
     description:
       "Designed for comfort, these dining chairs are upholstered in a soft fabric and foam-filled for extra cushioning. The supportive backrest and integrated armrests encourage a better posture and the splayed legs honour recognisable Scandi-inspired shapes. We've made them from sturdy red oak in an espresso brown lacquer for a durable finish and sleek design contrast.",
-    image: "/assets/products/",
+    image: "/assets/products/(Wood & Co.) Basic Bar Stool_1.jpg",
     category: [""],
   },
   {
@@ -86,7 +86,7 @@ export const productData = [
     price: 49,
     description:
       "Designed for comfort, these dining chairs are upholstered in a soft fabric and foam-filled for extra cushioning. The supportive backrest and integrated armrests encourage a better posture and the splayed legs honour recognisable Scandi-inspired shapes. We've made them from sturdy red oak in an espresso brown lacquer for a durable finish and sleek design contrast.",
-    image: "/assets/products/",
+    image: "/assets/products/(Level) Headphones 1_1.jpg",
     category: [""],
   },
   {
@@ -95,7 +95,7 @@ export const productData = [
     price: 9,
     description:
       "Designed for comfort, these dining chairs are upholstered in a soft fabric and foam-filled for extra cushioning. The supportive backrest and integrated armrests encourage a better posture and the splayed legs honour recognisable Scandi-inspired shapes. We've made them from sturdy red oak in an espresso brown lacquer for a durable finish and sleek design contrast.",
-    image: "/assets/products/",
+    image: "/assets/products/Book_Cover_Mockup_1.jpg",
     category: [""],
   },
   {
@@ -104,7 +104,7 @@ export const productData = [
     price: 35,
     description:
       "Designed for comfort, these dining chairs are upholstered in a soft fabric and foam-filled for extra cushioning. The supportive backrest and integrated armrests encourage a better posture and the splayed legs honour recognisable Scandi-inspired shapes. We've made them from sturdy red oak in an espresso brown lacquer for a durable finish and sleek design contrast.",
-    image: "/assets/products/",
+    image: "/assets/products/(Urban Threads) Cocoa Fedora_2_1.jpg",
     category: [""],
   },
   {
@@ -113,7 +113,7 @@ export const productData = [
     price: 150,
     description:
       "Designed for comfort, these dining chairs are upholstered in a soft fabric and foam-filled for extra cushioning. The supportive backrest and integrated armrests encourage a better posture and the splayed legs honour recognisable Scandi-inspired shapes. We've made them from sturdy red oak in an espresso brown lacquer for a durable finish and sleek design contrast.",
-    image: "/assets/products/",
+    image: "/assets/products/(Chloe) Eau De Parfum - 50ml_0_2_1.jpg",
     category: [""],
   },
   {
@@ -122,7 +122,7 @@ export const productData = [
     price: 10,
     description:
       "Designed for comfort, these dining chairs are upholstered in a soft fabric and foam-filled for extra cushioning. The supportive backrest and integrated armrests encourage a better posture and the splayed legs honour recognisable Scandi-inspired shapes. We've made them from sturdy red oak in an espresso brown lacquer for a durable finish and sleek design contrast.",
-    image: "/assets/products/",
+    image: "/assets/products/Book_Cover_Mockup5_1.jpg",
     category: [""],
   },
   {
@@ -131,16 +131,7 @@ export const productData = [
     price: 49,
     description:
       "Designed for comfort, these dining chairs are upholstered in a soft fabric and foam-filled for extra cushioning. The supportive backrest and integrated armrests encourage a better posture and the splayed legs honour recognisable Scandi-inspired shapes. We've made them from sturdy red oak in an espresso brown lacquer for a durable finish and sleek design contrast.",
-    image: "/assets/products/",
-    category: [""],
-  },
-  {
-    slug: "dining-armchair-pink",
-    title: "Dining Armchair in Pink",
-    price: 199,
-    description:
-      "Designed for comfort, these dining chairs are upholstered in a soft fabric and foam-filled for extra cushioning. The supportive backrest and integrated armrests encourage a better posture and the splayed legs honour recognisable Scandi-inspired shapes. We've made them from sturdy red oak in an espresso brown lacquer for a durable finish and sleek design contrast.",
-    image: "/assets/products/",
+    image: "/assets/products/(Pool Toys) Inflatable Flamingo_2_1.jpg",
     category: [""],
   },
   {
@@ -149,7 +140,7 @@ export const productData = [
     price: 125,
     description:
       "Designed for comfort, these dining chairs are upholstered in a soft fabric and foam-filled for extra cushioning. The supportive backrest and integrated armrests encourage a better posture and the splayed legs honour recognisable Scandi-inspired shapes. We've made them from sturdy red oak in an espresso brown lacquer for a durable finish and sleek design contrast.",
-    image: "/assets/products/",
+    image: "/assets/products/side-table_0_21_0_2_1.jpg",
     category: [""],
   },
   {
@@ -158,16 +149,8 @@ export const productData = [
     price: 15,
     description:
       "Designed for comfort, these dining chairs are upholstered in a soft fabric and foam-filled for extra cushioning. The supportive backrest and integrated armrests encourage a better posture and the splayed legs honour recognisable Scandi-inspired shapes. We've made them from sturdy red oak in an espresso brown lacquer for a durable finish and sleek design contrast.",
-    image: "/assets/products/",
-    category: [""],
-  },
-  {
-    slug: "alices-adventures-wonderland-lewis-carroll",
-    title: "Alice's Adventures in Wonderland by Lewis Carroll",
-    price: 10,
-    description:
-      "Designed for comfort, these dining chairs are upholstered in a soft fabric and foam-filled for extra cushioning. The supportive backrest and integrated armrests encourage a better posture and the splayed legs honour recognisable Scandi-inspired shapes. We've made them from sturdy red oak in an espresso brown lacquer for a durable finish and sleek design contrast.",
-    image: "/assets/products/",
+    image:
+      "/assets/products/synthetic-clusterfiber-standard-pillow_0_21_0_2_1.jpg",
     category: [""],
   },
   {
@@ -176,7 +159,8 @@ export const productData = [
     price: 249,
     description:
       "Designed for comfort, these dining chairs are upholstered in a soft fabric and foam-filled for extra cushioning. The supportive backrest and integrated armrests encourage a better posture and the splayed legs honour recognisable Scandi-inspired shapes. We've made them from sturdy red oak in an espresso brown lacquer for a durable finish and sleek design contrast.",
-    image: "/assets/products/",
+    image:
+      "/assets/products/(Modern Furnishings) White & Wood Chair - 1_2_1.jpg",
     category: [""],
   },
   {
@@ -185,7 +169,7 @@ export const productData = [
     price: 12,
     description:
       "Designed for comfort, these dining chairs are upholstered in a soft fabric and foam-filled for extra cushioning. The supportive backrest and integrated armrests encourage a better posture and the splayed legs honour recognisable Scandi-inspired shapes. We've made them from sturdy red oak in an espresso brown lacquer for a durable finish and sleek design contrast.",
-    image: "/assets/products/",
+    image: "/assets/products/Book_Cover_Mockup4_1.jpg",
     category: [""],
   },
 ];
