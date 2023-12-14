@@ -1,13 +1,13 @@
 import axios from "axios";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "@components/ProductCard";
 
-const fetchProduct = async () => {
-  const products = await axios.post(`${process.env.DOMAIN_URL}/api/products`);
-  return products.data.data;
+const fetchProducts = async () => {
+  const response = await axios.get(`${process.env.DOMAIN_URL}/api/products`);
+  return response.data.products;
 };
 
 const ProductsPage = async () => {
-  const response = await fetchProduct();
+  const response = await fetchProducts();
 
   return (
     <section className="px-[48px] my-[60px]">
