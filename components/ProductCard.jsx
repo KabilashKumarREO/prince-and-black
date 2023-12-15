@@ -13,7 +13,7 @@ const ProductCard = ({ data }) => {
   };
 
   return (
-    <div className="w-[265px] px-[18px] py-[36px] rounded-xl bg-background flex flex-col justify-between">
+    <div className="w-[265px] px-[18px] py-[16px] rounded-xl bg-background flex flex-col">
       <Link href={`/product/${slug}`}>
         <div className="flex flex-col cursor-pointer">
           <img
@@ -21,7 +21,7 @@ const ProductCard = ({ data }) => {
             src={image}
             alt="title"
           />
-          <h2 className="mt-[8px] text-lg font-semibold">{title}</h2>
+          <h2 className="mt-[8px] text-lg font-semibold h-[56px]">{title}</h2>
           <h2 className="mt-[4px] text-base font-semibold">
             {"£"}
             {price}
@@ -29,7 +29,7 @@ const ProductCard = ({ data }) => {
         </div>
       </Link>
       <button
-        className="mt-[16px] bg-primary px-[24px] py-[8px] rounded-full text-lg font-semibold cursor-pointer"
+        className="mt-[16px] bg-primary px-[16px] py-[8px] mx-[16px] rounded-full text-lg font-semibold cursor-pointer"
         onClick={handleAddToCart}
       >
         Add to cart
