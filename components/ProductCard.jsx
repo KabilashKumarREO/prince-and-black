@@ -13,11 +13,11 @@ const ProductCard = ({ data }) => {
   };
 
   return (
-    <div>
+    <div className="w-[265px] px-[18px] py-[36px] rounded-xl bg-background flex flex-col justify-between">
       <Link href={`/product/${slug}`}>
-        <div className="w-[265px] px-[18px] py-[36px] rounded-xl bg-background flex flex-col">
+        <div className="flex flex-col cursor-pointer">
           <img
-            className="rounded-lg w-[265px] h-[265px] object-cover origin-center"
+            className="rounded-lg w-[225px] h-[225px] object-cover origin-center"
             src={image}
             alt="title"
           />
@@ -28,7 +28,12 @@ const ProductCard = ({ data }) => {
           </h2>
         </div>
       </Link>
-      <button onClick={handleAddToCart}>Add to cart</button>
+      <button
+        className="mt-[16px] bg-primary px-[24px] py-[8px] rounded-full text-lg font-semibold cursor-pointer"
+        onClick={handleAddToCart}
+      >
+        Add to cart
+      </button>
     </div>
   );
 };
