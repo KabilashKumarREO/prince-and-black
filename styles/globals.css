@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#cart-table thead td {
+  @apply font-bold text-lg text-center;
+}
+#cart-table tbody td {
+  @apply font-normal text-lg text-center;
+}
+#cart-table td {
+  @apply px-[24px] py-[12px];
+}
+#cart-table td img {
+  @apply w-[70px];
+}
+#cart-table tr {
+  @apply border-b border-b-primary;
+}
