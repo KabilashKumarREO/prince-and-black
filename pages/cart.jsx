@@ -10,8 +10,9 @@ const CartPage = () => {
   };
 
   return (
-    <section className="px-[60px] my-[60px] flex flex-col items-center justify-center">
-      <table id="cart-table" className="w-[100%] max-w-[1050px]">
+    <section className="px-[18px] md:px-[60px] my-[36px] md:my-[60px] flex flex-col items-center justify-center">
+      <h2 className="text-2xl font-bold text-center">Cart</h2>
+      <table id="cart-table" className="w-[100%] max-w-[1050px] mt-[24px]">
         <thead>
           <tr>
             <td>Product</td>

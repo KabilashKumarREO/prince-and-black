@@ -19,7 +19,6 @@ const ProductPage = () => {
     setIsLoading("loading");
     axios
       .get(`/api/product?productId=${slug}`)
-      // .then((res) => console.log("DATA: ", res.data.data))
       .then((response) => setProductData(response.data.data))
       .catch((err) => setIsLoading("error"))
       .then(() => setIsLoading("loaded"));
@@ -49,12 +48,16 @@ const ProductPage = () => {
   }
 
   return (
-    <section className="px-[50px] mt-[60px]">
-      <div className="w-[100%] flex flex-row items-start justify-start gap-[60px]">
+    <section className="px-[36px] md:px-[50px] my-[36px] md:my-[60px]">
+      <div className="w-[100%] flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start gap-[60px]">
         <div className="min-w-[40%]">
-          <img src={productData.image} alt={productData.title} />
+          <img
+            src={productData.image}
+            alt={productData.title}
+            className="rounded-xl"
+          />
         </div>
-        <div className="flex flex-col items-start gap-[16px]">
+        <div className="w-[100%] md:w-auto flex flex-col items-start gap-[16px]">
           <h2 className="text-2xl font-semibold">{productData.title}</h2>
           <h1 className="text-4xl font-bold">
             {"£"}
@@ -68,7 +71,7 @@ const ProductPage = () => {
           </ul>
           <button
             onClick={handleAddToCart}
-            className="mt-[24px] text-xl font-semibold px-[36px] py-[12px] rounded-full bg-primary text-dark"
+            className="mx-auto md:mx-0 mt-[24px] text-xl font-semibold px-[36px] py-[12px] rounded-full bg-primary text-dark"
           >
             Add to cart
           </button>

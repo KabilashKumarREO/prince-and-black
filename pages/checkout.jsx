@@ -67,14 +67,15 @@ const CheckoutPage = () => {
   }, []);
 
   return (
-    <div className="px-[60px] my-[60px] items-center justify-center">
+    <div className="px-[36px] md:px-[60px] my-[60px] items-center justify-center">
       <section className="flex flex-row items-start justify-center">
-        <div className=" w-[100%] max-w-[1150px] flex flex-row gap-[24px]">
-          <div className="w-[60%] flex">
-            <form className="p-5">
+        <div className=" w-[100%] max-w-[1150px] flex flex-col md:flex-row gap-[24px]">
+          <div className="w-[100%] md:w-[60%] flex">
+            <form className="p-5 w-[100%]">
+              <h2 className="mb-[12px] text-xl font-bold">Delivery</h2>
               <div className="space-y-12">
-                <div className="pb-12">
-                  <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                <div className="pb-1">
+                  <div className="grid grid-cols-1 gap-x-6 gap-y-4 md:gap-y-8 sm:grid-cols-6">
                     <div className="sm:col-span-3">
                       <label
                         htmlFor="first-name"
@@ -297,14 +298,20 @@ const CheckoutPage = () => {
               </div>
             </form>
           </div>
-          <div className="w-[40%] flex">
-            <form className="flex flex-col gap-8 w-full p-5">
-              <label className="relative w-full flex flex-col">
+          <div className="w-[100%] md:w-[40%] flex">
+            <form className="flex flex-col w-full p-5">
+              <h2 className="mb-[12px] text-xl font-bold">Delivery</h2>
+              <label className="relative w-full flex flex-col mb-4 md:mb-8">
                 <span className="block text-sm font-medium leading-6 text-gray-900">
                   Card number
                 </span>
                 <input
                   required
+                  inputmode="numeric"
+                  pattern="[0-9\s]{16,16}"
+                  autocomplete="cc-number"
+                  minlength={"16"}
+                  maxlength="16"
                   onChange={(e) =>
                     setCheckoutData({
                       ...checkoutData,
@@ -313,12 +320,12 @@ const CheckoutPage = () => {
                   }
                   value={checkoutData.cardNumber}
                   className="rounded-md peer px-4 py-2 border-2 border-gray-200 placeholder-gray-300"
-                  type="text"
+                  type="tel"
                   name="card_number"
-                  placeholder="0000 0000 0000"
+                  placeholder="0000 0000 0000 0000"
                 />
               </label>
-              <label className="relative flex flex-col">
+              <label className="relative flex flex-col mb-4 md:mb-8">
                 <span className="block text-sm font-medium leading-6 text-gray-900">
                   Expire date
                 </span>
@@ -337,7 +344,7 @@ const CheckoutPage = () => {
                   placeholder="MM/YY"
                 />
               </label>
-              <label className="relative flex flex-col">
+              <label className="relative flex flex-col mb-4 md:mb-8">
                 <span className="font-bold flex items-center gap-3 mb-3">
                   CVC/CVV
                 </span>
@@ -360,7 +367,7 @@ const CheckoutPage = () => {
           </div>
         </div>
       </section>
-      <div className="flex flex-row items-center justify-center gap-[20px]">
+      <div className="flex flex-row items-center justify-center gap-[20px] mt-[36px]">
         <button
           onClick={handleCheckoutForm}
           className="bg-primary px-[30px] py-[8px] rounded-full text-lg font-semibold cursor-pointer"

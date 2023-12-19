@@ -6,13 +6,13 @@
   @apply font-bold text-lg text-center;
 }
 #cart-table tbody td {
-  @apply font-normal text-lg text-center;
+  @apply font-normal text-sm sm:text-base md:text-lg text-center;
 }
 #cart-table td {
-  @apply px-[24px] py-[12px];
+  @apply px-[8px] md:px-[24px] py-[6px] md:py-[12px];
 }
 #cart-table td img {
-  @apply w-[70px];
+  @apply w-[48px] md:w-[70px];
 }
 #cart-table tr {
   @apply border-b border-b-primary;

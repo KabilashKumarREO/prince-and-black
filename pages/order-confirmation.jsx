@@ -23,7 +23,7 @@ const OrderConfirmationPage = () => {
   return (
     <div class="py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
       <div class="flex justify-start item-start space-y-2 flex-col">
-        <h1 class="text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-gray-800">
+        <h1 class="text-center text-3xl dark:text-white lg:text-4xl font-semibold leading-7 lg:leading-9 text-gray-800">
           Your Order #13432 is confirmed!
         </h1>
       </div>
@@ -67,7 +67,7 @@ const OrderConfirmationPage = () => {
             </div>
           </div>
         </div>
-        <section className="px-[60px] my-[60px] flex flex-col items-center justify-center">
+        <section className="px-[16px] md:px-[60px] my-[60px] flex flex-col items-center justify-center">
           <table id="cart-table" className="w-[100%] max-w-[1050px]">
             <thead>
               <tr>
