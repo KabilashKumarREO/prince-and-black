@@ -8,7 +8,7 @@ const Banner = () => {
         src="/assets/banner-1.png"
         alt="banner-1"
       />
-      <div className="px-[36px]">
+      <div className="w-[100%] px-[24px] md:px-[36px] flex flex-col items-center md:items-start text-center md:text-left">
         <h2 className="text-4xl mt-[100px] md:mt-[200px] font-bold text-light">
           Great offers on all your
           <br />

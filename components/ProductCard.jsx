@@ -19,7 +19,7 @@ const ProductCard = ({ data }) => {
           <img
             className="rounded-lg w-[225px] h-[225px] object-cover origin-center"
             src={image}
-            alt="title"
+            alt={title}
           />
           <h2 className="mt-[8px] text-lg font-semibold h-[56px]">{title}</h2>
           <h2 className="mt-[4px] text-base font-semibold">
