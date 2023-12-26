@@ -4,8 +4,8 @@ const Banner = () => {
   return (
     <section className="w-[100%] h-[400px] min-h-[400px] md:min-h-[600px] md:h-[600px] relative flex flex-col items-start">
       <img
-        className="absolute z-[-1] w-[100%] h-[400px] min-h-[400px] md:min-h-[600px] md:h-[600px] object-cover origin-center"
-        src="/assets/banner-1.png"
+        className="absolute z-[-1] w-[100%] h-[400px] min-h-[400px] md:min-h-[600px] md:h-[600px] object-cover origin-center brightness-75"
+        src="/assets/banner-2.png"
         alt="banner-1"
       />
       <div className="w-[100%] px-[24px] md:px-[36px] flex flex-col items-center md:items-start text-center md:text-left">
@@ -18,8 +18,8 @@ const Banner = () => {
           Commerce with confidence
         </h4>
         <Link href={"/products"}>
-          <button className="mt-[24px] text-xl font-semibold px-[36px] py-[16px] rounded-full bg-primary">
-            Shop Now
+          <button className="mt-[24px] text-xl font-bold px-[36px] py-[16px] rounded-xl bg-primary">
+            Visit Catalog
           </button>
         </Link>
       </div>

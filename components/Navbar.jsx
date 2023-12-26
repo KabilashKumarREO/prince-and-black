@@ -24,11 +24,21 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-10 h-[56px] bg-dark w-[100%] text-light flex flex-row items-center justify-between px-[16px] md:px-[30px]">
       <Link href={"/"}>
-        <img
+        {/* <img
           src="/assets/logo.svg"
           alt="logo"
           className="cursor-pointer h-[28px] md:h-[37px]"
-        />
+        /> */}
+        <picture className="cursor-pointer h-[28px] md:h-[32px] w-auto flex flex-row items-center gap-[8px]">
+          <img
+            src="/assets/pw_logo.png"
+            alt="logo"
+            className="h-[28px] md:h-[32px]"
+          />
+          <h2 className="font-bold tracking-[0.4em] text-sm md:text-base">
+            PRINCE&nbsp;<span className="text-primary">&</span>&nbsp;WHITE
+          </h2>
+        </picture>
       </Link>
       <div className="flex flex-row items-center gap-[36px] mr-[16px]">
         {cartItems && (
