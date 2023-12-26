@@ -21,7 +21,11 @@ const Home = () => {
         <h2 className="text-3xl font-bold text-center">Shop by Categories</h2>
         <div className="w-[100%] flex flex-row justify-center items-start gap-0">
           {categories.map((cat) => (
-            <CategoryCard title={cat} image={`/assets/category/${cat}.png`} />
+            <CategoryCard
+              key={cat}
+              title={cat}
+              image={`/assets/category/${cat}.png`}
+            />
           ))}
         </div>
       </section>
