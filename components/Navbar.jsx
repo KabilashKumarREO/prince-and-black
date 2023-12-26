@@ -21,14 +21,14 @@ const Navbar = () => {
     }
   }, []);
 
+  const cartLength = () => {
+    const total = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+    return total;
+  };
+
   return (
     <nav className="sticky top-0 z-10 h-[56px] bg-dark w-[100%] text-light flex flex-row items-center justify-between px-[16px] md:px-[30px]">
       <Link href={"/"}>
-        {/* <img
-          src="/assets/logo.svg"
-          alt="logo"
-          className="cursor-pointer h-[28px] md:h-[37px]"
-        /> */}
         <picture className="cursor-pointer h-[28px] md:h-[32px] w-auto flex flex-row items-center gap-[8px]">
           <img
             src="/assets/pw_logo.png"
@@ -60,7 +60,7 @@ const Navbar = () => {
                   />
                 </svg>
                 <p className="absolute top-[-8px] right-[-12px] bg-primary text-dark font-semibold md:font-bold px-[6px] py-[0px] rounded-full">
-                  {cartItems.length}
+                  {cartLength()}
                 </p>
               </div>
             </Link>

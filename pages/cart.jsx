@@ -7,7 +7,10 @@ const CartPage = () => {
   const dispatch = useDispatch();
 
   const calculateCartTotal = () => {
-    const total = cartItems.reduce((acc, item) => acc + item.price, 0);
+    const total = cartItems.reduce(
+      (acc, item) => acc + item.price * item.quantity,
+      0
+    );
     return total;
   };
 
@@ -37,8 +40,8 @@ const CartPage = () => {
                 <img src={item.image} alt={item.slug} />
               </td>
               <td>{item.title}</td>
-              <td>{"1"}</td>
-              <td>£{item.price}.00</td>
+              <td>{item.quantity}</td>
+              <td>£{item.price * item.quantity}.00</td>
               <td className="w-[24px]">
                 <button
                   onClick={(item) => removeItem(item.slug)}

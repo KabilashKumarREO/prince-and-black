@@ -16,7 +16,10 @@ const OrderConfirmationPage = () => {
   }, []);
 
   const calculateCartTotal = () => {
-    const total = cartItems.reduce((acc, item) => acc + item.price, 0);
+    const total = cartItems.reduce(
+      (acc, item) => acc + item.price * item.quantity,
+      0
+    );
     return total;
   };
 
@@ -84,8 +87,8 @@ const OrderConfirmationPage = () => {
                     <img src={item.image} alt={item.slug} />
                   </td>
                   <td>{item.title}</td>
-                  <td>{"1"}</td>
-                  <td>£{item.price}.00</td>
+                  <td>{item.quantity}</td>
+                  <td>£{item.price * item.quantity}.00</td>
                 </tr>
               ))}
             </tbody>
