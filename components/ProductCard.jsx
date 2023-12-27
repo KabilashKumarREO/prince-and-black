@@ -13,7 +13,7 @@ const ProductCard = ({ data }) => {
   };
 
   return (
-    <div className="w-[265px] px-[18px] py-[16px] rounded-xl bg-background flex flex-col">
+    <div className="product-card w-[265px] px-[18px] py-[16px] rounded-xl bg-background flex flex-col">
       <Link href={`/product/${slug}`}>
         <div className="flex flex-col cursor-pointer">
           <img

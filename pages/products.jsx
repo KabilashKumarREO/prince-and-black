@@ -78,7 +78,10 @@ const ProductsPage = () => {
           ))}
         </div>
       </aside>
-      <section className="w-[calc(100% - 200px)] my-[60px] flex items-start justify-center">
+      <section
+        id="products-list"
+        className="w-[calc(100% - 200px)] my-[60px] flex items-start justify-center"
+      >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[16px]">
           {isLoading === "loaded" &&
             selectedProducts.map((product) => (

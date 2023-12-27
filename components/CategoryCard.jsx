@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const CategoryCard = ({ title, image }) => {
   return (
-    <div className="w-[265px] flex flex-col items-center">
+    <div className="category w-[265px] flex flex-col items-center">
       <Link href={`/category/${title}`}>
         <div className="flex flex-col cursor-pointer items-center">
           <img

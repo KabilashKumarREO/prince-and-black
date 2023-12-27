@@ -29,7 +29,10 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-10 h-[56px] bg-dark w-[100%] text-light flex flex-row items-center justify-between px-[16px] md:px-[30px]">
       <Link href={"/"}>
-        <picture className="cursor-pointer h-[28px] md:h-[32px] w-auto flex flex-row items-center gap-[8px]">
+        <picture
+          id="nav-logo"
+          className="cursor-pointer h-[28px] md:h-[32px] w-auto flex flex-row items-center gap-[8px]"
+        >
           <img
             src="/assets/pw_logo.png"
             alt="logo"
@@ -40,7 +43,10 @@ const Navbar = () => {
           </h2>
         </picture>
       </Link>
-      <div className="flex flex-row items-center gap-[36px] mr-[16px]">
+      <div
+        id="nav-cart"
+        className="flex flex-row items-center gap-[36px] mr-[16px]"
+      >
         {cartItems && (
           <div className="cursor-pointer">
             <Link href={"/cart"}>
@@ -66,7 +72,7 @@ const Navbar = () => {
             </Link>
           </div>
         )}
-        <div className="hidden md:block cursor-pointer">
+        <div id="nav-products" className="hidden md:block cursor-pointer">
           <Link href={"/products"}>Shop</Link>
         </div>
       </div>

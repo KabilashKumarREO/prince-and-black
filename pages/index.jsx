@@ -17,7 +17,10 @@ const Home = () => {
   return (
     <main>
       <Banner />
-      <section className="flex flex-col items-center justify-center px-[36px] md:px-[60px] my-[60px] gap-[48px]">
+      <section
+        id="shop-by-categories"
+        className="flex flex-col items-center justify-center px-[36px] md:px-[60px] my-[60px] gap-[48px]"
+      >
         <h2 className="text-3xl font-bold text-center">Shop by Categories</h2>
         <div className="w-[100%] flex flex-row justify-center items-start gap-0">
           {categories.map((cat) => (
@@ -29,7 +32,10 @@ const Home = () => {
           ))}
         </div>
       </section>
-      <section className="flex flex-col items-center justify-center px-[36px] md:px-[60px] my-[60px] gap-[48px]">
+      <section
+        id="black-friday"
+        className="flex flex-col items-center justify-center px-[36px] md:px-[60px] my-[60px] gap-[48px]"
+      >
         <h2 className="text-5xl font-bold text-center">
           <span className="text-primary">Prince &</span> Black Friday Deals
         </h2>

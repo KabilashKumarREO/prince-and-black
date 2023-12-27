@@ -369,12 +369,14 @@ const CheckoutPage = () => {
       </section>
       <div className="flex flex-row items-center justify-center gap-[20px] mt-[36px]">
         <button
+          id="pay-now"
           onClick={handleCheckoutForm}
           className="bg-primary px-[30px] py-[8px] rounded-full text-lg font-semibold cursor-pointer"
         >
           Pay Now
         </button>
         <button
+          id="cancel-checkout"
           onClick={() => router.replace("/")}
           className="bg-dark text-light px-[30px] py-[8px] rounded-full text-lg font-semibold cursor-pointer"
         >

@@ -52,14 +52,20 @@ const ProductPage = () => {
       <div className="w-[100%] flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start gap-[60px]">
         <div className="min-w-[40%]">
           <img
+            id="product-image"
             src={productData.image}
             alt={productData.title}
-            className="rounded-xl"
+            className="rounded-xl w-[100%] max-w-[600px]"
           />
         </div>
-        <div className="w-[100%] md:w-auto flex flex-col items-start gap-[16px]">
-          <h2 className="text-2xl font-semibold">{productData.title}</h2>
-          <h1 className="text-4xl font-bold">
+        <div
+          id="product-details"
+          className="w-[100%] md:w-auto flex flex-col items-start gap-[16px]"
+        >
+          <h2 id="product-title" className="text-2xl font-semibold">
+            {productData.title}
+          </h2>
+          <h1 id="product-price" className="text-4xl font-bold">
             {"£"}
             {productData.price}
             {".00"}
@@ -70,6 +76,7 @@ const ProductPage = () => {
             ))}
           </ul>
           <button
+            id="add-to-cart"
             onClick={handleAddToCart}
             className="mx-auto md:mx-0 mt-[24px] text-xl font-semibold px-[36px] py-[12px] rounded-full bg-primary text-dark"
           >

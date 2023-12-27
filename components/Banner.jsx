@@ -2,7 +2,10 @@ import Link from "next/link";
 
 const Banner = () => {
   return (
-    <section className="w-[100%] h-[400px] min-h-[400px] md:min-h-[600px] md:h-[600px] relative flex flex-col items-start">
+    <section
+      id="banner"
+      className="w-[100%] h-[400px] min-h-[400px] md:min-h-[600px] md:h-[600px] relative flex flex-col items-start"
+    >
       <img
         className="absolute z-[-1] w-[100%] h-[400px] min-h-[400px] md:min-h-[600px] md:h-[600px] object-cover origin-center brightness-75"
         src="/assets/banner-2.png"

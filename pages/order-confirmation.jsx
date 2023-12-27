@@ -31,7 +31,10 @@ const OrderConfirmationPage = () => {
         </h1>
       </div>
       <div class="mt-10 flex flex-col xl:flex-row jusitfy-center items-stretch w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0">
-        <div class="bg-gray-50 dark:bg-gray-800 w-full xl:w-96 flex justify-between items-center md:items-start px-4 py-6 md:p-6 xl:p-8 flex-col">
+        <div
+          id="shipping"
+          class="bg-gray-50 dark:bg-gray-800 w-full xl:w-96 flex justify-between items-center md:items-start px-4 py-6 md:p-6 xl:p-8 flex-col"
+        >
           <h3 class="text-xl dark:text-white font-semibold leading-5 text-gray-800">
             Shipping address
           </h3>

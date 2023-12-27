@@ -21,7 +21,10 @@ const ProductList = () => {
   }
 
   return (
-    <div className="w-[100%] flex flex-row flex-wrap justify-center items-start gap-[36px]">
+    <div
+      id="product-list"
+      className="w-[100%] flex flex-row flex-wrap justify-center items-start gap-[36px]"
+    >
       {products.slice(0, 4).map((product) => (
         <ProductCard key={product.slug} data={product} />
       ))}
