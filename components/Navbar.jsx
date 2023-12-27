@@ -72,7 +72,10 @@ const Navbar = () => {
             </Link>
           </div>
         )}
-        <div id="nav-products" className="hidden md:block cursor-pointer">
+        <div
+          id="nav-products"
+          className="hidden md:block cursor-pointer font-medium"
+        >
           <Link href={"/products"}>Shop</Link>
         </div>
       </div>

@@ -277,6 +277,9 @@ const CheckoutPage = () => {
                       <div className="">
                         <input
                           required
+                          inputmode="numeric"
+                          minlength="6"
+                          maxlength="7"
                           onChange={(e) =>
                             setCheckoutData({
                               ...checkoutData,
@@ -310,7 +313,7 @@ const CheckoutPage = () => {
                   inputmode="numeric"
                   pattern="[0-9\s]{16,16}"
                   autocomplete="cc-number"
-                  minlength={"16"}
+                  minlength="16"
                   maxlength="16"
                   onChange={(e) =>
                     setCheckoutData({
@@ -331,6 +334,9 @@ const CheckoutPage = () => {
                 </span>
                 <input
                   required
+                  inputmode="numeric"
+                  minlength="4"
+                  maxlength="4"
                   onChange={(e) =>
                     setCheckoutData({
                       ...checkoutData,
@@ -350,6 +356,9 @@ const CheckoutPage = () => {
                 </span>
                 <input
                   required
+                  inputmode="numeric"
+                  minlength="3"
+                  maxlength="3"
                   onChange={(e) =>
                     setCheckoutData({
                       ...checkoutData,
