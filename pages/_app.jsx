@@ -14,7 +14,7 @@ Router.events.on("routeChangeError", () => nProgress.done());
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <Script>
+      <Script id="gtm-tag">
         {`
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
