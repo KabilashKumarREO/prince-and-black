@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { initializeCart } from "../store/addToCartSlice";
+import { useRouter } from "next/router";
+import toast from "react-hot-toast";
 
 const CartPage = () => {
   const cartItems = useSelector((state) => state.cartState.items);
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const calculateCartTotal = () => {
     const total = cartItems.reduce(
@@ -14,15 +17,30 @@ const CartPage = () => {
     return total;
   };
 
-  const removeItem = (slug) => {
+  const removeItem = (e, slug) => {
     const updatedCart = cartItems.filter((item) => item.slug !== slug);
 
     dispatch(initializeCart(updatedCart));
     localStorage.setItem("cart", JSON.stringify(updatedCart));
+    return toast.success("Product removed from cart");
   };
 
+  if (cartItems.length === 0) {
+    return (
+      <section className="min-h-[100vh] px-[18px] md:px-[60px] my-[36px] md:my-[60px] flex flex-col items-center ">
+        <h2 className="text-2xl font-bold text-center">Cart is empty</h2>
+        <button
+          onClick={() => router.push("/products")}
+          className="mt-[24px] bg-primary px-[24px] py-[8px] rounded-full text-lg font-semibold cursor-pointer"
+        >
+          Shop now
+        </button>
+      </section>
+    );
+  }
+
   return (
-    <section className="px-[18px] md:px-[60px] my-[36px] md:my-[60px] flex flex-col items-center justify-center">
+    <section className="min-h-[100vh] px-[18px] md:px-[60px] my-[36px] md:my-[60px] flex flex-col items-center ">
       <h2 className="text-2xl font-bold text-center">Cart</h2>
       <table id="cart-table" className="w-[100%] max-w-[1050px] mt-[24px]">
         <thead>
@@ -44,7 +62,7 @@ const CartPage = () => {
               <td>£{item.price * item.quantity}.00</td>
               <td className="w-[24px]">
                 <button
-                  onClick={(item) => removeItem(item.slug)}
+                  onClick={(e) => removeItem(e, item.slug)}
                   className="cursor-pointer"
                 >
                   <svg

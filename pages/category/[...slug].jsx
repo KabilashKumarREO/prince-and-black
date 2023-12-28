@@ -27,7 +27,7 @@ const CategoryPage = () => {
   }
 
   return (
-    <section className="px-[48px] my-[60px] flex items-center justify-center">
+    <section className="min-h-[100vh] px-[48px] my-[60px] flex items-center justify-center">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[16px]">
         {isLoading === "loaded" &&
           products.map((product) => (

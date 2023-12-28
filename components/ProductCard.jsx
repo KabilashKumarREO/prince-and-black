@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { addItemToCart } from "../store/addToCartSlice";
 import { syncLocalCart } from "../utils/cart";
+import toast from "react-hot-toast";
 
 const ProductCard = ({ data }) => {
   const { slug, title, price, image } = data;
@@ -10,6 +11,7 @@ const ProductCard = ({ data }) => {
   const handleAddToCart = () => {
     dispatch(addItemToCart({ slug, price, title, image }));
     syncLocalCart(slug, price, title, image);
+    return toast.success("Product added to cart");
   };
 
   return (

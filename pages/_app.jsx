@@ -6,6 +6,7 @@ import Router from "next/router";
 import nProgress from "nprogress";
 import Script from "next/script";
 import Footer from "../components/Footer";
+import { Toaster } from "react-hot-toast";
 
 nProgress.configure({ showSpinner: true });
 Router.events.on("routeChangeStart", () => nProgress.start());
@@ -24,6 +25,7 @@ function MyApp({ Component, pageProps }) {
         })(window,document,'script','dataLayer','GTM-MSJ6WT3');
         `}
       </Script>
+      <Toaster position="bottom-center" reverseOrder={false} />
       <Provider store={store}>
         <Navbar />
         <Component {...pageProps} />

@@ -58,7 +58,7 @@ const ProductsPage = () => {
   }
 
   return (
-    <main className="px-[16px] md:px-[48px] flex flex-row w-[100%] justify-center relative">
+    <main className="min-h-[100vh] px-[16px] md:px-[48px] flex flex-row w-[100%] justify-center relative">
       <aside className="hidden md:flex sticky top-[116px] w-[200px] h-[100%] my-[60px] flex-col items-start">
         <h2 className="font-semibold text-xl">Categories</h2>
         <div className="flex flex-col items-start gap-[8px] mt-[8px]">

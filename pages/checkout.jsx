@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { createCheckout } from "../store/checkoutSlice";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import toast from "react-hot-toast";
 
 const CheckoutPage = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,36 @@ const CheckoutPage = () => {
     cardCvv: "",
   });
 
-  const handleCheckoutForm = () => {
+  const handleCheckoutForm = (e) => {
+    e.preventDefault();
+    if (checkoutData.firstName === "") {
+      return toast.error("Firstname is required");
+    }
+    if (checkoutData.email === "") {
+      return toast.error("Email is required");
+    }
+    if (checkoutData.country === "") {
+      return toast.error("Country is required");
+    }
+    if (checkoutData.address === "") {
+      return toast.error("Street address is required");
+    }
+    if (checkoutData.city === "") {
+      return toast.error("City is required");
+    }
+    if (checkoutData.state === "") {
+      return toast.error("State is required");
+    }
+    if (checkoutData.zipcode === "") {
+      return toast.error("Zipcode is required");
+    }
+    if (
+      checkoutData.cardNumber === "" ||
+      checkoutData.cardExpiry === "" ||
+      checkoutData.cardCvv === ""
+    ) {
+      return toast.error("Card details validation error");
+    }
     dispatch(
       createCheckout({
         firstName: checkoutData.firstName,
@@ -67,11 +97,11 @@ const CheckoutPage = () => {
   }, []);
 
   return (
-    <div className="px-[36px] md:px-[60px] my-[60px] items-center justify-center">
+    <form className="min-h-[100vh] px-[36px] md:px-[60px] my-[60px] items-center justify-center">
       <section className="flex flex-row items-start justify-center">
         <div className=" w-[100%] max-w-[1150px] flex flex-col md:flex-row gap-[24px]">
           <div className="w-[100%] md:w-[60%] flex">
-            <form className="p-5 w-[100%]">
+            <div className="p-5 w-[100%]">
               <h2 className="mb-[12px] text-xl font-bold">Delivery</h2>
               <div className="space-y-12">
                 <div className="pb-1">
@@ -299,10 +329,10 @@ const CheckoutPage = () => {
                   </div>
                 </div>
               </div>
-            </form>
+            </div>
           </div>
           <div className="w-[100%] md:w-[40%] flex">
-            <form className="flex flex-col w-full p-5">
+            <div className="flex flex-col w-full p-5">
               <h2 className="mb-[12px] text-xl font-bold">Delivery</h2>
               <label className="relative w-full flex flex-col mb-4 md:mb-8">
                 <span className="block text-sm font-medium leading-6 text-gray-900">
@@ -372,13 +402,14 @@ const CheckoutPage = () => {
                   placeholder="&bull;&bull;&bull;"
                 />
               </label>
-            </form>
+            </div>
           </div>
         </div>
       </section>
       <div className="flex flex-row items-center justify-center gap-[20px] mt-[36px]">
         <button
           id="pay-now"
+          type="submit"
           onClick={handleCheckoutForm}
           className="bg-primary px-[30px] py-[8px] rounded-full text-lg font-semibold cursor-pointer"
         >
@@ -392,7 +423,7 @@ const CheckoutPage = () => {
           Cancel
         </button>
       </div>
-    </div>
+    </form>
   );
 };
 

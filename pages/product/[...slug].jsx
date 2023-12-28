@@ -48,7 +48,7 @@ const ProductPage = () => {
   }
 
   return (
-    <section className="px-[36px] md:px-[50px] my-[36px] md:my-[60px]">
+    <section className="min-h-[100vh] px-[36px] md:px-[50px] my-[36px] md:my-[60px]">
       <div className="w-[100%] flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start gap-[60px]">
         <div className="min-w-[40%]">
           <img
