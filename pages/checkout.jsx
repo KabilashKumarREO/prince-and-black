@@ -411,7 +411,7 @@ const CheckoutPage = () => {
           id="pay-now"
           type="submit"
           onClick={handleCheckoutForm}
-          className="bg-primary px-[30px] py-[8px] rounded-full text-lg font-semibold cursor-pointer"
+          className="bg-primary hover:bg-dark hover:text-light transition px-[30px] py-[8px] rounded-full text-lg font-semibold cursor-pointer"
         >
           Pay Now
         </button>

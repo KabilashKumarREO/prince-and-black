@@ -31,7 +31,7 @@ const CartPage = () => {
         <h2 className="text-2xl font-bold text-center">Cart is empty</h2>
         <button
           onClick={() => router.push("/products")}
-          className="mt-[24px] bg-primary px-[24px] py-[8px] rounded-full text-lg font-semibold cursor-pointer"
+          className="mt-[24px] bg-primary hover:bg-dark hover:text-light transition px-[24px] py-[8px] rounded-full text-lg font-semibold cursor-pointer"
         >
           Shop now
         </button>
@@ -91,7 +91,7 @@ const CartPage = () => {
       </div>
       <div className="w-[100%] max-w-[1050px] mt-[24px] flex items-center justify-end">
         <Link href={"/checkout"}>
-          <button className="bg-primary px-[24px] py-[8px] rounded-full text-lg font-semibold cursor-pointer">
+          <button className="bg-primary hover:bg-dark hover:text-light transition px-[24px] py-[8px] rounded-full text-lg font-semibold cursor-pointer">
             Checkout
           </button>
         </Link>

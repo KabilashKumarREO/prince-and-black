@@ -31,7 +31,7 @@ const ProductCard = ({ data }) => {
         </div>
       </Link>
       <button
-        className="mt-[16px] bg-primary px-[16px] py-[8px] mx-[16px] rounded-full text-lg font-semibold cursor-pointer"
+        className="mt-[16px] bg-primary hover:bg-dark hover:text-light transition px-[16px] py-[8px] mx-[16px] rounded-full text-lg font-semibold cursor-pointer"
         onClick={handleAddToCart}
       >
         Add to cart

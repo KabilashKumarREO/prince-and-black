@@ -5,6 +5,7 @@ import Spinner from "../../components/Spinner";
 import { useDispatch } from "react-redux";
 import { addItemToCart } from "../../store/addToCartSlice";
 import { syncLocalCart } from "../../utils/cart";
+import toast from "react-hot-toast";
 
 const ProductPage = () => {
   const router = useRouter();
@@ -41,6 +42,7 @@ const ProductPage = () => {
       productData.title,
       productData.image
     );
+    return toast.success("Product added to cart");
   };
 
   if (isLoading === "loading") {
@@ -78,7 +80,7 @@ const ProductPage = () => {
           <button
             id="add-to-cart"
             onClick={handleAddToCart}
-            className="mx-auto md:mx-0 mt-[24px] text-xl font-semibold px-[36px] py-[12px] rounded-full bg-primary text-dark"
+            className="mx-auto md:mx-0 mt-[24px] text-xl font-semibold px-[36px] py-[12px] rounded-full bg-primary text-dark hover:bg-dark hover:text-light transition"
           >
             Add to cart
           </button>
