@@ -1,8 +1,8 @@
-import axios from "axios";
 import ProductCard from "../components/ProductCard";
 import Spinner from "../components/Spinner";
 import { useEffect, useState } from "react";
 import { productData } from "../productData";
+import serverApi from "../utils/serverApi";
 
 const ProductsPage = () => {
   const [products, setProducts] = useState([]);
@@ -13,8 +13,8 @@ const ProductsPage = () => {
 
   useEffect(() => {
     setIsLoading("loading");
-    axios
-      .get(`/api/products`)
+    serverApi
+      .get(`${process.env.NEXT_PUBLIC_SERVER_URL}/product/get-all`)
       .then((response) => {
         setProducts(response.data.products);
         setSelectedProducts(response.data.products);

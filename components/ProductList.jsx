@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import Spinner from "./Spinner";
-import axios from "axios";
+import serverApi from "../utils/serverApi";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -9,8 +9,8 @@ const ProductList = () => {
 
   useEffect(() => {
     setIsLoading("loading");
-    axios
-      .get(`/api/products`)
+    serverApi
+      .get(`${process.env.NEXT_PUBLIC_SERVER_URL}/product/get-all`)
       .then((response) => setProducts(response.data.products))
       .catch((err) => setIsLoading("error"))
       .then(() => setIsLoading("loaded"));

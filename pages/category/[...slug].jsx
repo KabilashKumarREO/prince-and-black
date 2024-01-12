@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Spinner from "../../components/Spinner";
 import ProductCard from "../../components/ProductCard";
+import serverApi from "../../utils/serverApi";
 
 const CategoryPage = () => {
   const router = useRouter();
@@ -15,8 +16,11 @@ const CategoryPage = () => {
     if (!slug) return;
 
     setIsLoading("loading");
-    axios
-      .get(`/api/category?categoryId=${slug}`)
+    axios;
+    serverApi
+      .get(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/product/category-products?categoryId=${slug}`
+      )
       .then((response) => setProducts(response.data.products))
       .catch((err) => setIsLoading("error"))
       .then(() => setIsLoading("loaded"));

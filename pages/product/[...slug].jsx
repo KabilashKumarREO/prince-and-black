@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Spinner from "../../components/Spinner";
@@ -6,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { addItemToCart } from "../../store/addToCartSlice";
 import { syncLocalCart } from "../../utils/cart";
 import toast from "react-hot-toast";
+import serverApi from "../../utils/serverApi";
 
 const ProductPage = () => {
   const router = useRouter();
@@ -18,8 +18,10 @@ const ProductPage = () => {
     if (!slug) return;
 
     setIsLoading("loading");
-    axios
-      .get(`/api/product?productId=${slug}`)
+    serverApi
+      .get(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/product/get-product?productId=${slug}`
+      )
       .then((response) => setProductData(response.data.data))
       .catch((err) => setIsLoading("error"))
       .then(() => setIsLoading("loaded"));
@@ -30,17 +32,17 @@ const ProductPage = () => {
   const handleAddToCart = () => {
     dispatch(
       addItemToCart({
-        slug: productData.slug,
-        price: productData.price,
-        title: productData.title,
-        image: productData.image,
+        slug: productData?.slug,
+        price: productData?.price,
+        title: productData?.title,
+        image: productData?.image,
       })
     );
     syncLocalCart(
-      productData.slug,
-      productData.price,
-      productData.title,
-      productData.image
+      productData?.slug,
+      productData?.price,
+      productData?.title,
+      productData?.image
     );
     return toast.success("Product added to cart");
   };
@@ -55,8 +57,8 @@ const ProductPage = () => {
         <div className="min-w-[40%]">
           <img
             id="product-image"
-            src={productData.image}
-            alt={productData.title}
+            src={productData?.image}
+            alt={productData?.title}
             className="rounded-xl w-[100%] max-w-[600px]"
           />
         </div>
@@ -65,15 +67,15 @@ const ProductPage = () => {
           className="w-[100%] md:w-auto flex flex-col items-start gap-[16px]"
         >
           <h2 id="product-title" className="text-2xl font-semibold">
-            {productData.title}
+            {productData?.title}
           </h2>
           <h1 id="product-price" className="text-4xl font-bold">
             {"£"}
-            {productData.price}
+            {productData?.price}
             {".00"}
           </h1>
           <ul className="list-disc ml-[16px]">
-            {productData.description.split(". ").map((item, index) => (
+            {productData?.description?.split(". ").map((item, index) => (
               <li key={index}>{item}</li>
             ))}
           </ul>
