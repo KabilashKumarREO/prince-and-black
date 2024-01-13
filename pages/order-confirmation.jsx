@@ -48,6 +48,20 @@ const OrderConfirmationPage = () => {
     return total;
   };
 
+  if (cartItems.length === 0) {
+    return (
+      <section className="min-h-[100vh] px-[18px] md:px-[60px] my-[36px] md:my-[60px] flex flex-col items-center ">
+        <h2 className="text-2xl font-bold text-center">Cart is empty</h2>
+        <button
+          onClick={() => router.push("/products")}
+          className="mt-[24px] bg-primary hover:bg-dark hover:text-light transition px-[24px] py-[8px] rounded-full text-lg font-semibold cursor-pointer"
+        >
+          Shop now
+        </button>
+      </section>
+    );
+  }
+
   return (
     <div className="min-h-[100vh] py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
       <div className="flex justify-start item-start space-y-2 flex-col">

@@ -3,9 +3,12 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import serverApi from "../../utils/serverApi";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../store/userSlice";
 
 const Register = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
   const [registerDetails, setRegisterDetails] = useState({
     name: "",
     email: "",
@@ -33,7 +36,16 @@ const Register = () => {
         email: registerDetails.email,
         password: registerDetails.password,
       })
-      .then((data) => console.log("Sign up successful: ", data))
+      .then((response) => {
+        localStorage.setItem("pw_token", response.data.token);
+        dispatch(
+          setUser({
+            name: response.data.profile.name,
+            email: response.data.profile.email,
+            isAdmin: response.data.profile.isAdmin,
+          })
+        );
+      })
       .then(() => toast.success("Sign up successful."))
       .then(() => router.replace("/"))
       .catch((err) => toast.error("Unable to Register. Please try again."));

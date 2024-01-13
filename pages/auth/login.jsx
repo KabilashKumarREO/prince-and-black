@@ -3,9 +3,12 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import serverApi from "../../utils/serverApi";
+import { setUser } from "../../store/userSlice";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
   const [registerDetails, setRegisterDetails] = useState({
     email: "",
     password: "",
@@ -24,7 +27,16 @@ const Login = () => {
         email: registerDetails.email,
         password: registerDetails.password,
       })
-      .then((data) => console.log("Sign in successful: ", data))
+      .then((response) => {
+        localStorage.setItem("pw_token", response.data.token);
+        dispatch(
+          setUser({
+            name: response.data.profile.name,
+            email: response.data.profile.email,
+            isAdmin: response.data.profile.isAdmin,
+          })
+        );
+      })
       .then(() => toast.success("Sign in successful."))
       .then(() => router.replace("/"))
       .catch((err) => toast.error("Unable to Sign in. Please try again."));

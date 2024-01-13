@@ -1,10 +1,11 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { createCheckout } from "../store/checkoutSlice";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import toast from "react-hot-toast";
 
 const CheckoutPage = () => {
+  const cartItems = useSelector((state) => state.cartState.items);
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -96,6 +97,20 @@ const CheckoutPage = () => {
     }
   }, []);
 
+  if (cartItems.length === 0) {
+    return (
+      <section className="min-h-[100vh] px-[18px] md:px-[60px] my-[36px] md:my-[60px] flex flex-col items-center ">
+        <h2 className="text-2xl font-bold text-center">Cart is empty</h2>
+        <button
+          onClick={() => router.push("/products")}
+          className="mt-[24px] bg-primary hover:bg-dark hover:text-light transition px-[24px] py-[8px] rounded-full text-lg font-semibold cursor-pointer"
+        >
+          Shop now
+        </button>
+      </section>
+    );
+  }
+
   return (
     <form className="min-h-[100vh] px-[36px] md:px-[60px] my-[60px] items-center justify-center">
       <section className="flex flex-row items-start justify-center">
@@ -126,7 +141,6 @@ const CheckoutPage = () => {
                           type="text"
                           name="first-name"
                           id="first-name"
-                          autoComplete="given-name"
                           placeholder="First name"
                           className="rounded-md peer px-4 py-2 border-2 border-gray-200 placeholder-gray-300 w-full"
                         />
@@ -153,7 +167,6 @@ const CheckoutPage = () => {
                           type="text"
                           name="last-name"
                           id="last-name"
-                          autoComplete="family-name"
                           placeholder="Last name"
                           className="rounded-md peer px-4 py-2 border-2 border-gray-200 placeholder-gray-300 w-full"
                         />
@@ -180,7 +193,6 @@ const CheckoutPage = () => {
                           id="email"
                           name="email"
                           type="email"
-                          autoComplete="email"
                           placeholder="example@domain.com"
                           className="rounded-md peer px-4 py-2 border-2 border-gray-200 placeholder-gray-300 w-full"
                         />
@@ -205,7 +217,6 @@ const CheckoutPage = () => {
                           value={checkoutData.country}
                           id="country"
                           name="country"
-                          autoComplete="country-name"
                           className="rounded-md peer px-4 py-2 border-2 border-gray-200 placeholder-gray-300 w-full"
                         >
                           <option value="" disabled>
@@ -236,7 +247,6 @@ const CheckoutPage = () => {
                           type="text"
                           name="street-address"
                           id="street-address"
-                          autoComplete="street-address"
                           placeholder="Street address"
                           className="rounded-md peer px-4 py-2 border-2 border-gray-200 placeholder-gray-300 w-full"
                         />
@@ -263,7 +273,6 @@ const CheckoutPage = () => {
                           type="text"
                           name="city"
                           id="city"
-                          autoComplete="address-level2"
                           placeholder="City"
                           className="rounded-md peer px-4 py-2 border-2 border-gray-200 placeholder-gray-300 w-full"
                         />
@@ -290,7 +299,6 @@ const CheckoutPage = () => {
                           type="text"
                           name="region"
                           id="region"
-                          autoComplete="address-level1"
                           placeholder="State / Province"
                           className="rounded-md peer px-4 py-2 border-2 border-gray-200 placeholder-gray-300 w-full"
                         />
@@ -308,8 +316,8 @@ const CheckoutPage = () => {
                         <input
                           required
                           inputmode="numeric"
-                          minlength="6"
-                          maxlength="7"
+                          minLength="6"
+                          maxLength="7"
                           onChange={(e) =>
                             setCheckoutData({
                               ...checkoutData,
@@ -320,7 +328,6 @@ const CheckoutPage = () => {
                           type="text"
                           name="postal-code"
                           id="postal-code"
-                          autoComplete="postal-code"
                           placeholder="SE17SJ"
                           className="rounded-md peer px-4 py-2 border-2 border-gray-200 placeholder-gray-300 w-full"
                         />
@@ -342,9 +349,8 @@ const CheckoutPage = () => {
                   required
                   inputmode="numeric"
                   pattern="[0-9\s]{16,16}"
-                  autocomplete="cc-number"
-                  minlength="16"
-                  maxlength="16"
+                  minLength="16"
+                  maxLength="16"
                   onChange={(e) =>
                     setCheckoutData({
                       ...checkoutData,
@@ -365,8 +371,8 @@ const CheckoutPage = () => {
                 <input
                   required
                   inputmode="numeric"
-                  minlength="4"
-                  maxlength="4"
+                  minLength="4"
+                  maxLength="4"
                   onChange={(e) =>
                     setCheckoutData({
                       ...checkoutData,
@@ -387,8 +393,8 @@ const CheckoutPage = () => {
                 <input
                   required
                   inputmode="numeric"
-                  minlength="3"
-                  maxlength="3"
+                  minLength="3"
+                  maxLength="3"
                   onChange={(e) =>
                     setCheckoutData({
                       ...checkoutData,

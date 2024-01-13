@@ -2,11 +2,41 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { initializeCart } from "../store/addToCartSlice";
+import AccountInfo from "./AccountInfo";
+import axios from "axios";
+import { setUser } from "../store/userSlice";
 
 const Navbar = () => {
   const cartItems = useSelector((state) => state.cartState.items);
   const dispatch = useDispatch();
-  // console.log(cartItems);
+
+  useEffect(() => {
+    const clientToken = localStorage.getItem("pw_token");
+    if (!clientToken) return;
+
+    const checkAuth = async () => {
+      await axios({
+        method: "post",
+        url: `${process.env.NEXT_PUBLIC_SERVER_URL}/auth/is-auth`,
+        headers: {
+          Authorization: clientToken,
+        },
+      })
+        .then((response) => {
+          dispatch(
+            setUser({
+              name: response.data.profile.name,
+              email: response.data.profile.email,
+              isAdmin: response.data.profile.isAdmin,
+            })
+          );
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    checkAuth();
+  }, []);
 
   useEffect(() => {
     if (cartItems && cartItems.length === 0) {
@@ -27,7 +57,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-10 h-[56px] bg-dark w-[100%] text-light flex flex-row items-center justify-between px-[16px] md:px-[30px]">
+    <nav className="sticky top-0 z-10 h-[56px] bg-dark w-[100%] text-light flex flex-row items-center justify-between px-[12px] md:px-[30px]">
       <Link href={"/"}>
         <picture
           id="nav-logo"
@@ -45,26 +75,39 @@ const Navbar = () => {
       </Link>
       <div
         id="nav-cart"
-        className="flex flex-row items-center gap-[36px] mr-[16px]"
+        className="flex flex-row items-center gap-[10px] md:gap-[36px] mr-[16px] relative"
       >
-        <Link href={"/auth/login"}>
-          <div className="cursor-pointer">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-              stroke="currentColor"
-              className="w-8 h-8"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-              />
-            </svg>
+        <div
+          onClick={() =>
+            document.querySelector("#account-info").classList.contains("hidden")
+              ? document
+                  .querySelector("#account-info")
+                  .classList.remove("hidden")
+              : document.querySelector("#account-info").classList.add("hidden")
+          }
+          className="cursor-pointer"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            className="w-6 md:w-8 h-6 md:h-8"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+            />
+          </svg>
+          <div
+            id="account-info"
+            className="hidden absolute left-[-80px] top-[40px]"
+          >
+            <AccountInfo />
           </div>
-        </Link>
+        </div>
         {cartItems && (
           <div className="cursor-pointer">
             <Link href={"/cart"}>
@@ -75,7 +118,7 @@ const Navbar = () => {
                   viewBox="0 0 24 24"
                   strokeWidth={2}
                   stroke="currentColor"
-                  className="w-8 h-8 "
+                  className="w-6 md:w-8 h-6 md:h-8"
                 >
                   <path
                     strokeLinecap="round"
