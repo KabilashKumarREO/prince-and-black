@@ -37,20 +37,23 @@ const AccountInfo = () => {
       {userData.email && (
         <div className="flex flex-col items-center justify-center gap-[8px]">
           <p className="text-dark font-semibold">Hello {userData.name}</p>
-          <button className="w-[100%] py-[6px] border-2 border-primary hover:border-dark bg-primary text-dark font-semibold cursor-pointer rounded transition">
+          <button
+            onClick={() => router.push("/my-orders")}
+            className="w-[100%] py-[6px] border-2 border-primary hover:border-dark bg-primary text-dark font-semibold cursor-pointer rounded transition"
+          >
             My Orders
           </button>
           {userData.isAdmin && (
             <button
               onClick={() => router.push("/admin/products")}
-              className="w-[100%] py-[6px] border-2 border-dark bg-dark hover:bg-primary text-light hover:text-dark font-semibold cursor-pointer rounded transition"
+              className="w-[100%] py-[6px] border-2 border-dark bg-dark text-light hover:text-primary font-semibold cursor-pointer rounded transition"
             >
               Products
             </button>
           )}
           <button
             onClick={handleLogout}
-            className="w-[100%] py-[6px] border-2 border-dark bg-light hover:bg-dark text-dark hover:text-light font-semibold cursor-pointer rounded transition"
+            className="w-[100%] py-[6px] border-2 border-dark hover:border-primary bg-light text-dark font-semibold cursor-pointer rounded transition"
           >
             Logout
           </button>

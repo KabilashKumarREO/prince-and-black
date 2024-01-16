@@ -1,4 +1,4 @@
-export const syncLocalCart = (slug, price, title, image) => {
+export const syncLocalCart = (_id, slug, price, title, image) => {
   let localCart;
   let localCartStr = localStorage.getItem("cart");
   if (!localCartStr) {
@@ -9,13 +9,13 @@ export const syncLocalCart = (slug, price, title, image) => {
   // localCart.push({ slug, price, title, image });
 
   if (localCart.length === 0) {
-    let newItem = { slug, price, title, image };
+    let newItem = { _id, slug, price, title, image };
     newItem.quantity = 1;
     localCart.push(newItem);
   } else {
     const existingItem = localCart.some((item) => item.slug === slug);
     if (!existingItem) {
-      let newItem = { slug, price, title, image };
+      let newItem = { _id, slug, price, title, image };
       newItem.quantity = 1;
       localCart.push(newItem);
     } else {

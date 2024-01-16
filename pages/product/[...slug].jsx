@@ -32,6 +32,7 @@ const ProductPage = () => {
   const handleAddToCart = () => {
     dispatch(
       addItemToCart({
+        _id: productData?._id,
         slug: productData?.slug,
         price: productData?.price,
         title: productData?.title,
@@ -39,6 +40,7 @@ const ProductPage = () => {
       })
     );
     syncLocalCart(
+      productData?._id,
       productData?.slug,
       productData?.price,
       productData?.title,

@@ -1,4 +1,4 @@
-// ["Sports", "Electricals", "Fashion", "Gifts", "Books", "Electricals"];
+// ["Sports", "Electricals", "Fashion", "Gifts", "Books"];
 
 export const productData = [
   {

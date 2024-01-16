@@ -39,7 +39,7 @@ const Login = () => {
       })
       .then(() => toast.success("Sign in successful."))
       .then(() => router.replace("/"))
-      .catch((err) => toast.error("Unable to Sign in. Please try again."));
+      .catch((err) => toast.error("Invalid credentials. Please try again."));
   };
 
   return (

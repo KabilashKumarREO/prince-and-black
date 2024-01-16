@@ -48,7 +48,7 @@ const Register = () => {
       })
       .then(() => toast.success("Sign up successful."))
       .then(() => router.replace("/"))
-      .catch((err) => toast.error("Unable to Register. Please try again."));
+      .catch((err) => toast.error(err.response.data.error));
   };
 
   return (

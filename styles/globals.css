@@ -17,3 +17,41 @@
 #cart-table tr {
   @apply border-b border-b-primary;
 }
+
+#products-table thead td {
+  @apply font-bold text-lg text-center;
+}
+#products-table tbody td {
+  @apply font-normal text-sm sm:text-base md:text-lg text-center;
+}
+#products-table td {
+  @apply px-[8px] md:px-[24px] py-[4px] md:py-[8px];
+}
+#products-table td img {
+  @apply w-[36px] md:w-[55px];
+}
+#products-table tr {
+  @apply border-b border-b-primary;
+}
+
+#admin-product-form form input,
+#admin-product-form form textarea,
+#admin-product-form form select {
+  @apply px-[8px] py-[4px] border-[1px] rounded;
+}
+
+#order-table {
+  @apply w-auto;
+}
+#order-table thead td {
+  @apply text-sm sm:text-base font-semibold text-center;
+}
+#order-table tbody td {
+  @apply font-normal text-sm sm:text-base text-center;
+}
+#order-table td {
+  @apply px-[8px] md:px-[24px] py-[4px] md:py-[6px];
+}
+#order-table td img {
+  @apply w-[36px] md:w-[55px];
+}

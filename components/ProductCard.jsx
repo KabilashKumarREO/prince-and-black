@@ -5,12 +5,12 @@ import { syncLocalCart } from "../utils/cart";
 import toast from "react-hot-toast";
 
 const ProductCard = ({ data }) => {
-  const { slug, title, price, image } = data;
+  const { _id, slug, title, price, image } = data;
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
-    dispatch(addItemToCart({ slug, price, title, image }));
-    syncLocalCart(slug, price, title, image);
+    dispatch(addItemToCart({ _id, slug, price, title, image }));
+    syncLocalCart(_id, slug, price, title, image);
     return toast.success("Product added to cart");
   };
 

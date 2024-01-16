@@ -3,9 +3,11 @@ import { createCheckout } from "../store/checkoutSlice";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import toast from "react-hot-toast";
+import serverApi from "../utils/serverApi";
 
 const CheckoutPage = () => {
   const cartItems = useSelector((state) => state.cartState.items);
+  const userData = useSelector((state) => state.userState);
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -22,6 +24,24 @@ const CheckoutPage = () => {
     cardExpiry: "",
     cardCvv: "",
   });
+
+  const generateToken = () => {
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let token = "";
+
+    for (let i = 0; i < 8; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      token += characters.charAt(randomIndex);
+    }
+    return token;
+  };
+  const calculateCartTotal = () => {
+    const total = cartItems.reduce(
+      (acc, item) => acc + item.price * item.quantity,
+      0
+    );
+    return total;
+  };
 
   const handleCheckoutForm = (e) => {
     e.preventDefault();
@@ -84,7 +104,30 @@ const CheckoutPage = () => {
         cardCvv: checkoutData.cardCvv,
       })
     );
-    router.replace("/order-confirmation");
+    serverApi
+      .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/order/add`, {
+        orderId: "PW-" + generateToken(),
+        accountEmail: userData.email || "guest",
+        cart: cartItems.map((item) => item._id),
+        totalPrice: calculateCartTotal(),
+        firstName: checkoutData.firstName,
+        lastName: checkoutData.lastName,
+        country: checkoutData.country,
+        streetAddress: checkoutData.address,
+        city: checkoutData.city,
+        province: checkoutData.state,
+        zipcode: checkoutData.zipcode,
+      })
+      .then((response) => {
+        console.log(response.data);
+        toast.success("Order placed successfully.");
+        router.replace(
+          `/order-confirmation?orderId=${response.data.order.orderId}`
+        );
+      })
+      .catch((err) => toast.error("Error"));
+
+    // router.replace("/order-confirmation");
   };
 
   useEffect(() => {
