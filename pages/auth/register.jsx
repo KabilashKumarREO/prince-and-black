@@ -15,6 +15,7 @@ const Register = () => {
     password: "",
     confirmPassword: "",
   });
+  const [isLoading, setIsLoading] = useState(""); // loading, loaded, error
 
   const handleRegister = async () => {
     if (registerDetails.name.trim().length === 0) {
@@ -30,6 +31,7 @@ const Register = () => {
       return toast.error("Password needs to be minimum 8 characters.");
     }
 
+    setIsLoading("loading");
     await serverApi
       .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/auth/create`, {
         name: registerDetails.name,
@@ -46,9 +48,15 @@ const Register = () => {
           })
         );
       })
-      .then(() => toast.success("Sign up successful."))
+      .then(() => {
+        toast.success("Sign up successful.");
+        setIsLoading("loaded");
+      })
       .then(() => router.replace("/"))
-      .catch((err) => toast.error(err.response.data.error));
+      .catch((err) => {
+        setIsLoading("loaded");
+        toast.error(err.response.data.error);
+      });
   };
 
   return (
@@ -113,7 +121,7 @@ const Register = () => {
             onClick={handleRegister}
             className="w-full text-center py-3 rounded-lg bg-green text-white hover:bg-green-dark focus:outline-none my-1 bg-primary font-semibold"
           >
-            Create Account
+            {isLoading === "loading" ? "Registering" : "Create Account"}
           </button>
         </div>
 

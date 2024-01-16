@@ -13,6 +13,7 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const [isLoading, setIsLoading] = useState(""); // loading, loaded, error
 
   const handleRegister = async () => {
     if (registerDetails.email.length === 0) {
@@ -22,6 +23,7 @@ const Login = () => {
       return toast.error("Please check password.");
     }
 
+    setIsLoading("loading");
     await serverApi
       .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/auth/sign-in`, {
         email: registerDetails.email,
@@ -37,9 +39,15 @@ const Login = () => {
           })
         );
       })
-      .then(() => toast.success("Sign in successful."))
+      .then(() => {
+        setIsLoading("loaded");
+        toast.success("Sign in successful.");
+      })
       .then(() => router.replace("/"))
-      .catch((err) => toast.error("Invalid credentials. Please try again."));
+      .catch((err) => {
+        setIsLoading("loaded");
+        toast.error("Invalid credentials. Please try again.");
+      });
   };
 
   return (
@@ -76,9 +84,10 @@ const Login = () => {
           <button
             type="submit"
             onClick={handleRegister}
+            disabled={isLoading === "loading"}
             className="w-full text-center py-3 rounded-lg bg-green text-white hover:bg-green-dark focus:outline-none my-1 bg-primary font-semibold"
           >
-            Login
+            {isLoading === "loading" ? "Logging in" : "Login"}
           </button>
         </div>
 
