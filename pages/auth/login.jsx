@@ -83,7 +83,7 @@ const Login = () => {
         </div>
 
         <div className="text-grey-dark mt-6 flex flex-row">
-          Don't have an account?&nbsp;
+          Don&apos;t have an account?&nbsp;
           <Link href="/auth/register">
             <p className="font-semibold cursor-pointer">Register</p>
           </Link>

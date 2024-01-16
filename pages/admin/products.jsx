@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import serverApi from "../../utils/serverApi";
 import slugify from "slugify";
 import toast from "react-hot-toast";
+import Spinner from "../../components/Spinner";
 
 const AdminProducts = () => {
   const categories = ["Sports", "Electricals", "Fashion", "Gifts", "Books"];
