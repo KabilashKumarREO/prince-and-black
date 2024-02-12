@@ -5,6 +5,7 @@ import serverApi from "../../utils/serverApi";
 import slugify from "slugify";
 import toast from "react-hot-toast";
 import Spinner from "../../components/Spinner";
+import { SERVER_URL } from "../../config";
 
 const AdminProducts = () => {
   const categories = ["Sports", "Electricals", "Fashion", "Gifts", "Books"];
@@ -33,7 +34,7 @@ const AdminProducts = () => {
   useEffect(() => {
     setIsLoading("loading");
     serverApi
-      .get(`${process.env.NEXT_PUBLIC_SERVER_URL}/product/get-all`)
+      .get(`${SERVER_URL}/product/get-all`)
       .then((response) => {
         setProducts(response.data.products);
         setSelectedProducts(response.data.products);
@@ -57,7 +58,7 @@ const AdminProducts = () => {
     e.preventDefault();
     setIsAdded("loading");
     serverApi
-      .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/product/add`, {
+      .post(`${SERVER_URL}/product/add`, {
         slug: slugify(newProduct.title) + "-" + generateToken(),
         title: newProduct.title,
         price: newProduct.price,

@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import serverApi from "../../utils/serverApi";
 import { setUser } from "../../store/userSlice";
 import { useDispatch } from "react-redux";
+import { SERVER_URL } from "../../config";
 
 const Login = () => {
   const router = useRouter();
@@ -25,7 +26,7 @@ const Login = () => {
 
     setIsLoading("loading");
     await serverApi
-      .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/auth/sign-in`, {
+      .post(`${SERVER_URL}/auth/sign-in`, {
         email: registerDetails.email,
         password: registerDetails.password,
       })

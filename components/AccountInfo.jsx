@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import serverApi from "../utils/serverApi";
 import toast from "react-hot-toast";
 import { setUser } from "../store/userSlice";
+import { SERVER_URL } from "../config";
 
 const AccountInfo = () => {
   const userData = useSelector((state) => state.userState);
@@ -13,7 +14,7 @@ const AccountInfo = () => {
     const token = localStorage.getItem("pw_token");
     await localStorage.removeItem("pw_token");
     await serverApi
-      .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/auth/logout`, {
+      .post(`${SERVER_URL}/auth/logout`, {
         email: userData.email,
         token: token,
       })

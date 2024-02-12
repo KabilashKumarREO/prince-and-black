@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import serverApi from "../../utils/serverApi";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../store/userSlice";
+import { SERVER_URL } from "../../config";
 
 const Register = () => {
   const router = useRouter();
@@ -33,7 +34,7 @@ const Register = () => {
 
     setIsLoading("loading");
     await serverApi
-      .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/auth/create`, {
+      .post(`${SERVER_URL}/auth/create`, {
         name: registerDetails.name,
         email: registerDetails.email,
         password: registerDetails.password,

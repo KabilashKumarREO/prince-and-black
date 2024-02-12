@@ -5,6 +5,7 @@ import { initializeCart } from "../store/addToCartSlice";
 import AccountInfo from "./AccountInfo";
 import axios from "axios";
 import { setUser } from "../store/userSlice";
+import { SERVER_URL } from "../config";
 
 const Navbar = () => {
   const cartItems = useSelector((state) => state.cartState.items);
@@ -17,7 +18,7 @@ const Navbar = () => {
     const checkAuth = async () => {
       await axios({
         method: "post",
-        url: `${process.env.NEXT_PUBLIC_SERVER_URL}/auth/is-auth`,
+        url: `${SERVER_URL}/auth/is-auth`,
         headers: {
           Authorization: clientToken,
         },

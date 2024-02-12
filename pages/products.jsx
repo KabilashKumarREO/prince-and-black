@@ -3,6 +3,7 @@ import Spinner from "../components/Spinner";
 import { useEffect, useState } from "react";
 import { productData } from "../productData";
 import serverApi from "../utils/serverApi";
+import { SERVER_URL } from "../config";
 
 const ProductsPage = () => {
   const [products, setProducts] = useState([]);
@@ -14,7 +15,7 @@ const ProductsPage = () => {
   useEffect(() => {
     setIsLoading("loading");
     serverApi
-      .get(`${process.env.NEXT_PUBLIC_SERVER_URL}/product/get-all`)
+      .get(`${SERVER_URL}/product/get-all`)
       .then((response) => {
         setProducts(response.data.products);
         setSelectedProducts(response.data.products);

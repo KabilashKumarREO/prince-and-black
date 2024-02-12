@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import Spinner from "./Spinner";
 import serverApi from "../utils/serverApi";
+import { SERVER_URL } from "../config";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -10,7 +11,7 @@ const ProductList = () => {
   useEffect(() => {
     setIsLoading("loading");
     serverApi
-      .get(`${process.env.NEXT_PUBLIC_SERVER_URL}/product/get-all`)
+      .get(`${SERVER_URL}/product/get-all`)
       .then((response) => setProducts(response.data.products))
       .catch((err) => setIsLoading("error"))
       .then(() => setIsLoading("loaded"));

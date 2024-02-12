@@ -1,7 +1,8 @@
 import axios from "axios";
+import { SERVER_URL } from "../config";
 
 const serverApi = axios.create({
-  baseURL: "process.env.NEXT_PUBLIC_SERVER_URL",
+  baseURL: SERVER_URL,
 });
 
 export default serverApi;

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 import OrderCard from "../components/OrderCard";
+import { SERVER_URL } from "../config";
 
 const MyOrders = () => {
   const userData = useSelector((state) => state.userState);
@@ -13,7 +14,7 @@ const MyOrders = () => {
     const clientToken = localStorage.getItem("pw_token");
     await axios({
       method: "get",
-      url: `${process.env.NEXT_PUBLIC_SERVER_URL}/order/my-orders`,
+      url: `${SERVER_URL}/order/my-orders`,
       data: { email: userData.email },
       headers: {
         Authorization: clientToken,

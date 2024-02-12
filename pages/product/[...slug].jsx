@@ -6,6 +6,7 @@ import { addItemToCart } from "../../store/addToCartSlice";
 import { syncLocalCart } from "../../utils/cart";
 import toast from "react-hot-toast";
 import serverApi from "../../utils/serverApi";
+import { SERVER_URL } from "../../config";
 
 const ProductPage = () => {
   const router = useRouter();
@@ -19,9 +20,7 @@ const ProductPage = () => {
 
     setIsLoading("loading");
     serverApi
-      .get(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/product/get-product?productId=${slug}`
-      )
+      .get(`${SERVER_URL}/product/get-product?productId=${slug}`)
       .then((response) => setProductData(response.data.data))
       .catch((err) => setIsLoading("error"))
       .then(() => setIsLoading("loaded"));

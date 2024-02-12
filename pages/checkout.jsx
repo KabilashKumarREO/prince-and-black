@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import toast from "react-hot-toast";
 import serverApi from "../utils/serverApi";
+import { SERVER_URL } from "../config";
 
 const CheckoutPage = () => {
   const cartItems = useSelector((state) => state.cartState.items);
@@ -105,7 +106,7 @@ const CheckoutPage = () => {
       })
     );
     serverApi
-      .post(`${process.env.NEXT_PUBLIC_SERVER_URL}/order/add`, {
+      .post(`${SERVER_URL}/order/add`, {
         orderId: "PW-" + generateToken(),
         accountEmail: userData.email || "guest",
         cart: cartItems.map((item) => item._id),

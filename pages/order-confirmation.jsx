@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { initializeCart } from "../store/addToCartSlice";
 import serverApi from "../utils/serverApi";
 import Spinner from "../components/Spinner";
+import { SERVER_URL } from "../config";
 
 const OrderConfirmationPage = () => {
   const [orderData, setOrderData] = useState({});
@@ -31,9 +32,7 @@ const OrderConfirmationPage = () => {
     }
 
     serverApi
-      .get(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/order/get-order?orderId=${orderId}`
-      )
+      .get(`${SERVER_URL}/order/get-order?orderId=${orderId}`)
       .then((response) => {
         setOrderData(response.data.order);
       })
