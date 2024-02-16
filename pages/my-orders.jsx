@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 import OrderCard from "../components/OrderCard";
 import { SERVER_URL } from "../config";
+import Spinner from "../components/Spinner";
 
 const MyOrders = () => {
   const userData = useSelector((state) => state.userState);
@@ -13,7 +14,7 @@ const MyOrders = () => {
   const getOrders = async () => {
     const clientToken = localStorage.getItem("pw_token");
     await axios({
-      method: "get",
+      method: "post",
       url: `${SERVER_URL}/order/my-orders`,
       data: { email: userData.email },
       headers: {
@@ -32,6 +33,10 @@ const MyOrders = () => {
     getOrders();
     setIsLoading("loaded");
   }, [userData]);
+
+  if (isLoading === "loading") {
+    return <Spinner />;
+  }
 
   return (
     <section className="min-h-[100vh] px-[18px] md:px-[60px] my-[36px] md:my-[60px] flex flex-col items-center gap-[24px]">
