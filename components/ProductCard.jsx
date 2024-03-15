@@ -5,7 +5,7 @@ import { syncLocalCart } from "../utils/cart";
 import toast from "react-hot-toast";
 
 const ProductCard = ({ data }) => {
-  const { _id, slug, title, price, image } = data;
+  const { _id, slug, title, price, image, usualPrice } = data;
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
@@ -24,9 +24,17 @@ const ProductCard = ({ data }) => {
             alt={title}
           />
           <h2 className="mt-[8px] text-lg font-semibold h-[56px]">{title}</h2>
-          <h2 className="mt-[4px] text-base font-semibold">
-            {"£"}
-            {price}
+          <h2 className="mt-[4px] text-base font-semibold flex flex-row items-center gap-[16px]">
+            <span className={usualPrice !== price ? `line-through` : ""}>
+              {"£"}
+              {usualPrice}
+            </span>
+            {usualPrice !== price && (
+              <span className="text-danger">
+                {"£"}
+                {price}
+              </span>
+            )}
           </h2>
         </div>
       </Link>
